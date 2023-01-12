@@ -9,7 +9,7 @@ import { StatusBar } from './statusBar/StatusBar';
 
 export default function Application(){
 
-    return<><Grid container>
+    return<><Grid container spacing={0}>
         <StatusBar />
         <MainHud />
     </Grid></>
