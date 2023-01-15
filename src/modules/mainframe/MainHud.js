@@ -1,5 +1,5 @@
 //MUI
-import { Button, Grid, ButtonGroup } from "@mui/material";
+import { Button, Grid, ButtonGroup, Modal } from "@mui/material";
 //import { useSelector } from "react-redux";
 //modules
 import { hudBasicMessages } from "../staticObjects/messages";
@@ -10,16 +10,12 @@ import Animations from './Animations'
 import { useDispatch } from "react-redux";
 import { clearConsole, newMessage } from "../../redux/logs";
 
-
-
-
 function Buttons(){
     const dispatch = useDispatch()
     const makeClearConsole = () => {dispatch(clearConsole())}
     
-    return <Grid item xs = {12} > 
+    return <Grid item xs = {12}  > 
         <ButtonGroup variant="contained" aria-label="outlined primary button group" fullWidth >   
-            <Button >Crear Aventurero</Button>
             <Button onClick={() => {dispatch(newMessage(hudBasicMessages.advance))}}>Avanzar</Button>
             <Button>Descansar</Button>
             <Button>Inventario</Button>
@@ -33,13 +29,13 @@ export default function MainHud(){
 
     
     return<><Grid container className="mainHud">
-        <Animations />
-        <Logs />
+        <Grid item xs={10}>
+            <Animations /> <Logs />
+        </Grid>
+        
         <PlayerStatusBar />{/* esto mide xs = 2 */}
         
-
         
-       
 
         <Buttons /> {/* esto mide xs = 12 */}
         

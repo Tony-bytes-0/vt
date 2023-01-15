@@ -9,7 +9,8 @@ const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
-  color: theme.palette.text.secondary,
+  color: "black",
+  fontSize:"1.1em"
 }));
 
 // function Item (){
@@ -17,8 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 // }
 
 export default function PlayerStatusBar (){
-    const playerData = useSelector(state => state.playerInfo.playerData)
-    console.log(playerData)
+    const playerData = useSelector(state => state.playerInfo)
 
     return <Grid item xs={2} maxHeight={350}>
         <Stack divider={<Divider orientation="vertical" flexItem />}  spacing={0.5}>

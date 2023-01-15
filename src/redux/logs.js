@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 import { v4 } from 'uuid'
 
 const initial = [
-    {'id':1, 'message':'asdasd'},
-    {'id':2, 'message':'segundo mensaje'},
-    {'id':3, 'message':'asdasd'}
+    // {'id':1, 'message':'asdasd'},
+    // {'id':2, 'message':'segundo mensaje'},
+    // {'id':3, 'message':'asdasd'}
 ]
 export const logs = createSlice({
     name:'logs',

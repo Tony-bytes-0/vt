@@ -6,6 +6,7 @@ import store from './redux/store'
 import { Provider } from 'react-redux'
 
 
+
 const container = document.getElementById('root');
 const root = createRoot(container); // createRoot(container!) if you use TypeScript
 
@@ -13,6 +14,9 @@ const root = createRoot(container); // createRoot(container!) if you use TypeScr
 
 root.render(
     <Provider store={store}>
-        <Application />
+
+            <Application />
+
+        
     </Provider>
 );

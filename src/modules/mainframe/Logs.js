@@ -12,7 +12,7 @@ export default function Logs(){
     
     console.log('estos son los mensajes', logList)
 
-    return<Grid item xs = {10} className='logs'>
+    return<Grid item xs = {12} className='logs'>
         <Box flex={true}>
             {logList.map((e) => <li key={e.id}>{e.message}</li>)}
         </Box>

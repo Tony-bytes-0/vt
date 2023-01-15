@@ -6,5 +6,5 @@ export function StatusBar (){
     const progress = useSelector( state => state.enviromentValues.progress)
     
     console.log(zone)
-    return <Grid item xs = {12} className='statusBar'> Zona actual: {zone}<br/> avance: {progress} </Grid>
+    return <Grid item xs = {12} className='statusBar plainBorder'> Zona actual: {zone}<br/> avance: {progress} </Grid>
 }
