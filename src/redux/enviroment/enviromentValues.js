@@ -1,12 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { zoneVariants }  from '../../modules/staticObjects/zoneVariants'; 
 
+const zoneVariants = {
+    'zone': 'Bosque de Hojas Secas',
+    'progress':0,
+    'advanceEnergyCost':1,
+    'posibleDrops':['Apple']
+}
 
 export const enviromentValues = createSlice({
     name:'enviromentValues',
     initialState: zoneVariants,
     reducers:{
-        
+
     }
 })
 

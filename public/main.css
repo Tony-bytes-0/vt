@@ -6,7 +6,7 @@
 
 .statusBar{ background-color: rgb(77, 129, 129); height: 12vh; padding:3vh;transition: all .4s ease;}
 
-.logs{background-color: rgb(77, 129, 129); overflow-y: scroll; padding: 2%; max-height: 80%; min-height: 80%;
+.logs{background-color: rgb(77, 129, 129); overflow-y: scroll; padding: 2%; max-height: 200px; min-height: 60%;
     border-style: inset; border-width: 6px; 
     color: aliceblue;  font-family: Arial, Helvetica, sans-serif; transition: all .4s ease;}
 
@@ -22,7 +22,7 @@
     box-shadow: 15px 15px rgba(0,0,0,.25);
   }
 .simpleModal{ width: 500px; background-color: white;margin: auto; }
-
+.apear{}
 
 .centrate{text-align: center; justify-content: center; align-items: center; }
 .right{ align-items:right; justify-content: right; }

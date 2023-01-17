@@ -1,42 +1,35 @@
 //MUI
-import { Button, Grid, ButtonGroup, Modal } from "@mui/material";
-//import { useSelector } from "react-redux";
+import { Grid, ButtonGroup } from "@mui/material";
 //modules
-import { hudBasicMessages } from "../staticObjects/messages";
 import PlayerStatusBar from './PlayerStatusBar'
 import Logs from "./Logs";
 import Animations from './Animations'
-//reducers
-import { useDispatch } from "react-redux";
-import { clearConsole, newMessage } from "../../redux/logs";
+//Botones del Hud
+import Advance from "./mainHudButtons/Advance";
+import Rest from "./mainHudButtons/Rest";
+import Inventory from "./mainHudButtons/Inventory";
+import ClearConsole from './mainHudButtons/ClearConsole';
+
 
 function Buttons(){
-    const dispatch = useDispatch()
-    const makeClearConsole = () => {dispatch(clearConsole())}
-    
-    return <Grid item xs = {12}  > 
-        <ButtonGroup variant="contained" aria-label="outlined primary button group" fullWidth >   
-            <Button onClick={() => {dispatch(newMessage(hudBasicMessages.advance))}}>Avanzar</Button>
-            <Button>Descansar</Button>
-            <Button>Inventario</Button>
-            <Button onClick={ makeClearConsole }>Limpiar consola</Button>
-        </ButtonGroup>
-    </Grid> 
+
+    return<ButtonGroup variant="contained" aria-label="outlined primary button group" fullWidth >
+        <Advance/> 
+        <Rest />
+        <Inventory />
+        <ClearConsole />
+    </ButtonGroup>
 }
 
-export default function MainHud(){
+export default function MainHud(){//Main
     //const playerData = useSelector(state => state.playerInfo)
 
     
     return<><Grid container className="mainHud">
-        <Grid item xs={10}>
+        <Grid item xs={10}>{/* cuadro central de la pantalla */}
             <Animations /> <Logs />
         </Grid>
-        
         <PlayerStatusBar />{/* esto mide xs = 2 */}
-        
-        
-
         <Buttons /> {/* esto mide xs = 12 */}
         
     </Grid></>

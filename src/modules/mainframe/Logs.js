@@ -1,10 +1,6 @@
-import {Grid } from "@mui/material";
+import {Grid, Slide  } from "@mui/material";
 import { Box } from "@mui/system";
 import { useSelector } from "react-redux";
-
-function Line(data){
-    return <span>{data}</span>
-}
 
 export default function Logs(){
 
@@ -12,9 +8,11 @@ export default function Logs(){
     
     console.log('estos son los mensajes', logList)
 
-    return<Grid item xs = {12} className='logs'>
-        <Box flex={true}>
-            {logList.map((e) => <li key={e.id}>{e.message}</li>)}
+    return<Grid item xs = {12} className='logs' id='scrollBox'>
+        <Box flex={true} >
+            {logList.map((e) => <Slide direction="right" key={e.id} in={true} > 
+                <li> {e.message} </li>  
+            </Slide>)}
         </Box>
     </Grid>
 }
