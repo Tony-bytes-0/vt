@@ -8,6 +8,7 @@ import Skill from './Skill';
 import Flee from './Flee';
 //Redux
 import { useSelector } from "react-redux";
+import MatchOver from "./MatchOver";
 
 
 export default function BattleButtons(){
@@ -18,7 +19,9 @@ export default function BattleButtons(){
         return <Grow in={true}>
             <ButtonGroup variant="contained" aria-label="outlined primary button group" fullWidth className="battleButtons battleHud">
                 <Attack /> <Guard /> <Skill /> <Flee />
+                <MatchOver />
             </ButtonGroup>
+            
         </Grow>
     }
 

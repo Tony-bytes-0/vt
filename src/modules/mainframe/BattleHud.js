@@ -18,9 +18,9 @@ export default function BattleHud (){
             <Grow in={true}>
                 <Stack direction={'row'} divider={<Divider orientation="horizontal" flexItem />}  spacing={0.5}>
                     <Item>Enemigo: <br/>{enemy.name}</Item>
-                    <Item>Puntos de Vida:<br/>{enemy.life}/{enemy.maxLife}</Item>
-                    <Item> Resistencia:<br/>{enemy.stamina}/{enemy.maxStamina}</Item>
-                    <Item>Mana:<br/>{enemy.mana}/{enemy.maxMana}</Item>
+                    <Item>Puntos de Vida:<br/>{enemy.life.toFixed(1)} / {enemy.maxLife.toFixed(1)}</Item>
+                    <Item> Resistencia:<br/>{enemy.stamina.toFixed(1)} / {enemy.maxStamina.toFixed(1)}</Item>
+                    <Item>Mana:<br/>{enemy.mana.toFixed(1)} / {enemy.maxMana.toFixed(1)}</Item>
                     <Item>Ataque:<br/>{enemy.attack}</Item>
                     <Item>Defensa:<br/>{enemy.defence}</Item>
                     <Item>Velocidad:<br/>{enemy.speed}</Item>
