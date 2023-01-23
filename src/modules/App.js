@@ -1,12 +1,14 @@
 //modulos
-import NewAdventurer from './mainframe/mainHudModules/NewAdventurer';
+import NewAdventurer from './NewAdventurer';
+import StatusBar  from './StatusBar';
+import MainHud from './mainframe/MainHud';
 //React-Router
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
 //MUI Components
 import { Grid } from '@mui/material';
-import MainHud from './mainframe/MainHud';
-import { StatusBar } from './statusBar/StatusBar';
+
+
 
 
 export default function Application(){

@@ -6,12 +6,12 @@ export default function Logs(){
 
     const logList = useSelector(state => state.logs)
     
-    console.log('estos son los mensajes', logList)
+    //console.log('estos son los mensajes', logList)
 
     return<Grid item xs = {12} className='logs' id='scrollBox'>
         <Box flex={true} >
             {logList.map((e) => <Slide direction="right" key={e.id} in={true} > 
-                <li> {e.message} </li>  
+                <li className="logFragment"> {e.message} </li>  
             </Slide>)}
         </Box>
     </Grid>

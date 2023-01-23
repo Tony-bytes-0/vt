@@ -10,3 +10,11 @@ export const newCharacters = {
     esgrimistaMagico:{name:'', class:'', level:0, life:1, stamina:1, attack:1, defence:1, mana:1, speed:1},
 
 }
+
+export const enemysObject = {
+    forest:{
+        goblin:{name:'Goblin', class:'asesino', life:4, stamina:2, attack:1, defence:1, mana:1, speed:4},
+        zombie:{name:'Zombie', class:'Ambulante', life:8, stamina:2, attack:3, defence:0, mana:1, speed:1},
+        maskMan:{name:'Hombre Encapuchado', class:'?', life:2.5, stamina:2, attack:1, defence:1, mana:6, speed:2.5},
+    }
+}

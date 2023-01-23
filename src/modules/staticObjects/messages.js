@@ -5,6 +5,7 @@ export const hudBasicMessages = {
     rest:{'message':'Descansas, Recuperando Energia al cabo de un dia'},
     inventory:{'message':''},
     newCharacter:{'message':''},
+    noEnergy:{'message':'No Tienes Suficiente Energia Para eso!'}
     // 'id': '', 'message':'',
     // 'id': '', 'message':'',
     // 'id': '', 'message':'',

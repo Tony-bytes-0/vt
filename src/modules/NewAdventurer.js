@@ -1,7 +1,7 @@
 import { FormControl, TextField, Grid, Button } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { newCharacters } from "../../staticObjects/Characters";
-import { setPlayer } from "../../../redux/player/playerInfo";
+import { newCharacters } from "./staticObjects/Characters";
+import { setPlayer } from "../redux/player/playerInfo";
 import { useNavigate } from "react-router-dom";
 
 
