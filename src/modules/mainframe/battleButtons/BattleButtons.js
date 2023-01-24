@@ -19,7 +19,6 @@ export default function BattleButtons(){
         return <Grow in={true}>
             <ButtonGroup variant="contained" aria-label="outlined primary button group" fullWidth className="battleButtons battleHud">
                 <Attack /> <Guard /> <Skill /> <Flee />
-                <MatchOver />
             </ButtonGroup>
             
         </Grow>

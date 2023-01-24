@@ -16,21 +16,19 @@ export const enemy = createSlice({
                 "life":action.payload.life, "maxLife":action.payload.life,
                 "stamina":action.payload.stamina, "maxStamina":action.payload.stamina,
                 "mana":action.payload.mana, "maxMana":action.payload.mana,
-                "attack":action.payload.attack, "defence":action.payload.defence, "speed":action.payload.speed
+                "attack":action.payload.attack, "defence":action.payload.defence, "speed":action.payload.speed,
+                "skills":action.payload.skills, "state":[],"items":action.payload.items
             }
         },
-        setLife:(state, action) => { 
-            return {
-                "name":state.name, "class": state.class,
-                "life":state.life + action.payload, "maxLife":state.maxLife,
-                "stamina":state.stamina, "maxStamina":state.maxStamina,
-                "mana":state.mana, "maxMana":state.maxMana,
-                "attack":state.attack, "defence":state.defence, "speed":state.speed
-            }
-        }
+        setLife:(state, action) => { const newValues = state; newValues.life = newValues.life + action.payload; return newValues },
+        setStamina:(state, action) => { const newValues = state; newValues.stamina = newValues.stamina + action.payload; return newValues },
+        setMana:(state, action) => { const newValues = state; newValues.mana = newValues.mana + action.payload; return newValues },
+        setAttack:(state, action) => { const newValues = state; newValues.attack = newValues.attack + action.payload; return newValues },
+        setGuardUp:(state, action) => { let newValues = state; newValues.state.push('En Guardia'); return newValues },
+        setGuardDown:(state, action) => { let newValues = state; newValues.state = newValues.state.filter(state => state  !== 'En Guardia'); return newValues },
         
     }
 })
 
-export const { setEnemy, setLife } = enemy.actions
+export const { setEnemy, setLife, setStamina, setAttack, setGuardUp, setGuardDown, setMana  } = enemy.actions
 export default enemy.reducer

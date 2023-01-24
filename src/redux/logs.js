@@ -12,7 +12,7 @@ export const logs = createSlice({
         },
 
         newMessage:(state, action) => {
-            const newEntry = {"message":action.payload.message, "id":v4()}
+            const newEntry = {"message":action.payload.message, "id":v4(), "params":action.payload.params}
             state.push(newEntry)
         }
     }

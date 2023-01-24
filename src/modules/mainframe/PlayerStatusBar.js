@@ -7,10 +7,10 @@ import { styled } from '@mui/material/styles';
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
-  padding: theme.spacing(1),
+  padding: theme.spacing(0.5),
   textAlign: 'center',
   color: "black",
-  fontSize:"1.1em"
+  fontSize:"0.5 em"
 }));
 
 // function Item (){
@@ -29,6 +29,7 @@ export default function PlayerStatusBar (){
             <Item>Defensa:{playerData.defence}</Item>
             <Item>Velocidad:{playerData.speed}</Item>
             <Item>Exp: {playerData.exp.toFixed(1)}</Item>
+            <Item >Estados: {playerData.state.map((e) => <li key = {e}>{e}<br/></li>)}</Item>
         </Stack>
     </Grid>
 }

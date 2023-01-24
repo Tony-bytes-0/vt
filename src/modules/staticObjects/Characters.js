@@ -14,8 +14,8 @@ export const newCharacters = {
 
 export const enemysObject = {
     forest:{
-        goblin:{name:'Goblin', class:'asesino', life:4, stamina:2, attack:1, defence:1, mana:1, speed:4},
+        goblin:{name:'Goblin', class:'Asesino', life:4, stamina:2, attack:1, defence:1, mana:1, speed:4, items:['apple']},
         zombie:{name:'Zombie', class:'Ambulante', life:8, stamina:2, attack:3, defence:0, mana:1, speed:1},
-        maskMan:{name:'Hombre Encapuchado', class:'?', life:2.5, stamina:2, attack:1, defence:1, mana:6, speed:2.5},
+        maskMan:{name:'Hombre Encapuchado', class:'Mago', life:2.5, stamina:2, attack:1, defence:1, mana:6, speed:2.5, skills:['Chispa Magica']},
     }
 }

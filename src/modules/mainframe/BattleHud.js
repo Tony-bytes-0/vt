@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 
 const Item = styled(Paper)(({ theme }) => ({
 backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',...theme.typography.body2,
-padding: theme.spacing(1), textAlign: 'center', color: "black", fontSize:"1.1em" }));
+padding: theme.spacing(1), textAlign: 'center', color: "black", fontSize:"0.8em" }));
 
 
 export default function BattleHud (){
@@ -25,6 +25,7 @@ export default function BattleHud (){
                     <Item>Defensa:<br/>{enemy.defence}</Item>
                     <Item>Velocidad:<br/>{enemy.speed}</Item>
                     <Item>Turno:<br/>{turn}</Item>
+                    <Item >Estados: {enemy.state.map((e) => <li key = {e}>{e}<br/></li>)}</Item>
                 </Stack>
             </Grow>
         </Grid>}
