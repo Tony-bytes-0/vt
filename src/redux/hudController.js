@@ -1,18 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initial = {'battle':false, 'adventure':true}
+const initial = {'battle':false, 'adventure':true, 'levelUp':false, 'spendPoints':0}
 export const hudController = createSlice({
     name:'hudController',
     initialState: initial,
     reducers:{
         toggleBattle:(state , action) => {
-            return {'battle':action.payload, 'adventure':state.adventure }
+            const newValues = state; newValues.battle = action.payload; return newValues;
         },
         toggleAdventure:(state , action) => {
-            return {'battle':state.battle, 'adventure':action.payload}
-        }
+            const newValues = state; newValues.adventure = action.payload; return newValues;
+        },
+        toggleLevelUp:(state, action) => {
+            const newValues = state; newValues.levelUp = action.payload; return newValues;
+        },
+        spendPoints:(state, action) => {
+            const newValues = state; newValues.spendPoints = action.payload; return newValues;
+        },
     }
 })
 
-export const { toggleBattle, toggleAdventure } = hudController.actions
+export const { toggleBattle, toggleAdventure, toggleLevelUp, spendPoints } = hudController.actions
 export default hudController.reducer

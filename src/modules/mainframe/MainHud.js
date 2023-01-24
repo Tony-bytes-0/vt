@@ -12,6 +12,7 @@ import Logs from "./Logs";
 import Animations from './Animations'
 import BattleButtons from "./battleButtons/BattleButtons";
 import { useSelector } from "react-redux";
+import LevelUpModal from "./LvlUpModal";
 
 function Buttons(){
     const battle = useSelector(state => state.hudController.battle)
@@ -40,6 +41,6 @@ export default function MainHud(){//Main
 
         <BattleButtons />{/*solo aparecen en batalla xs = 12 */}
 
-        
+        <LevelUpModal />
     </Grid></>
 }

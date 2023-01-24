@@ -2,6 +2,7 @@
     background-color: rgb(90, 99, 112);  padding-left: 2%; padding-right: 2%;}
 
 .battleHud{padding: 1%;}
+.element{padding:2%; display: flex;  } .element:hover{background-color: gray;}
 
 
 .plainBorder{box-shadow: 20px 20px rgba(0,0,0,.15); border: inset; border-color: rgb(39, 40, 40); border-width: 5px; border-radius: 5%;}
@@ -26,7 +27,7 @@
     border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
     box-shadow: 15px 15px rgba(0,0,0,.25);
   }
-.simpleModal{ width: 500px; background-color: white;margin: auto; padding: auto;}
+.simpleModal{ height: 350px; background-color: white;margin: auto; padding: 20px; font-size: 1em; margin: 10px;}
 
 
 .centrate{text-align: center; justify-content: center; align-items: center; }
