@@ -1,24 +1,28 @@
 import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { newMessage } from "../../../redux/logs";
+//Reducers
 import { turnCount } from "../../../redux/battleController";
-import { toggleBattle } from "../../../redux/hudController";
-import { modExp, modLife, modStamina, guardUp, guardDown } from "../../../redux/player/playerInfo";
-import { setLife, setStamina, setMana, setAttack, setGuardUp, setGuardDown } from "../../../redux/enemy";
+import { toggleBattle, toggleLevelUp } from "../../../redux/hudController";
+import { modExp, modLife, modStamina, guardDown,  } from "../../../redux/player/playerInfo";//PLAYER
+import { setLife, setStamina, setMana, setAttack, setGuardUp, setGuardDown } from "../../../redux/enemy";//ENEMY
+import { newMessage } from "../../../redux/logs";
 import { useEffect } from "react";
 import { calculateDmg, enemyRandomTurn, getRandomInt, castMagic } from "../../staticObjects/dmgCalculator";
 import { advance } from "../../../redux/enviroment/enviromentValues";
 
-export default function Guard(){
+
+export default function Calm(){
     const dispatch = useDispatch()
     const player = useSelector(state => state.playerInfo)
     const enemy = useSelector(state => state.enemy)
     const turn = useSelector(state => state.battleController.turn)
+    const battle = useSelector(state => state.battleController.battle)
+
 
     useEffect(() => {
-        console.log('referi de useEffect')
-        referi()
-  });
+            console.log('referi de useEffect')
+            referi()
+      });
 
     function referi(){
         if(player.life <= 0){
@@ -27,24 +31,30 @@ export default function Guard(){
             dispatch(setLife(0.5))
             dispatch(modExp(- (player.exp * 0.6)))
         }
-        else if(enemy.life <= 0 ){//final de la batalla
+        else if(enemy.life <= 0 && battle){//final de la batalla
             const lvl = enemy.maxLife + enemy.maxMana + enemy.maxStamina + enemy.attack + enemy.defence + enemy.speed / 6;
             dispatch(modExp(lvl))
             dispatch(newMessage({'message':'Derrotas a: ' + enemy.name +' Ganas: ' + lvl.toFixed(2) + ' Puntos de Experiencia'}))
             dispatch(toggleBattle(false))
+
+            dispatch(advance({"progress":1, "days":0.5}))
+            if(player.exp > player.maxExp){
+                dispatch(toggleLevelUp(true))
+            }
         }
         //else{console.log('player: ',player.life,' enemy:',enemy.life)}
-        //const scroll = document.getElementById('scrollBox') ;scroll.scroll(0, scroll.scrollHeight)
     }
 
     function playerAction(){
-        dispatch(guardDown())
-        dispatch(modStamina(1))
-        dispatch(guardUp())
-        dispatch(newMessage({'message':player.name + ' Sube La Guardia '}))
+        dispatch(guardDown())//para regular
+        dispatch(modLife( player.maxLife * 0.15.toFixed(2) )); 
+        dispatch(modStamina(player.maxStamina * 0.5.toFixed(2) ));
+        dispatch(modMana( player.maxMana * 0.5.toFixed(2) ));
+        //regulacion
+        if(player.life > player.maxLife){dispatch(modLife(player.maxLife))}
+        if(player.stamina > player.maxStamina){dispatch(modLife(player.maxStamina))}
+        if(player.mana > player.maxMana){dispatch(modLife(player.maxMana))}
     }
-
-
     function enemyAction(){
         dispatch(setGuardDown())//para regular
         const action = enemyRandomTurn(enemy.class)
@@ -77,18 +87,21 @@ export default function Guard(){
             //esto es cuando no tenga mana ni estamina - Descanso
             }else { dispatch(newMessage({'message':'el enemigo se come los mocos mientras descansa... '}))
             dispatch(setStamina(enemy.maxStamina)); dispatch(setMana(enemy.maxMana * 0.5)) //vida y mana
+
+            //regular maximos xd
+            if(enemy.mana > enemy.maxMana){dispatch(setMana(enemy.maxMana))}; if(enemy.stamina > enemy.maxStamina){dispatch(setStamina(enemy.maxStamina))}
         }
 /////////////////////////////////////// Usar Magia  - Fin  //////////////////////////////////////////// 
         }else if(action === 'Guard'){dispatch(newMessage({'message':enemy.name + ' Levanta Su Guardia '})); dispatch(setGuardUp())}///////
 
-        else{dispatch(newMessage({'message':'el enemigo se come los mocos mientras descansa... '}))
+        else{dispatch(newMessage({'message':'El Enemigo Descansa Recuperando Resistencia y Mana '}))
             dispatch(setStamina(enemy.maxStamina))
         }
         
-    }        
+    }
 
 
-    return <Button onClick={() => {
+    return <><Button onClick = {() => {//dispatch(newMessage({'message':''}))
         dispatch(newMessage({'message':'___ Turno ' + turn + ' ___'}))
         if(player.speed > enemy.speed){//setTimeout(( ) => playerAction() , 2000) //setTimeout(() => enemyAction(), 6000)
             playerAction()
@@ -100,5 +113,8 @@ export default function Guard(){
         dispatch(turnCount())
 
     const scroll = document.getElementById('scrollBox') ;scroll.scroll(0, scroll.scrollHeight)
-    }}>Cubrirse</Button>
+    
+    }}>Calmarse</Button>
+    
+    </>
 }

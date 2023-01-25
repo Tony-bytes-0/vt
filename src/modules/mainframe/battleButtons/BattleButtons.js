@@ -9,11 +9,16 @@ import Flee from './Flee';
 //Redux
 import { useSelector } from "react-redux";
 import MatchOver from "./MatchOver";
+import { useEffect } from "react";
 
 
 export default function BattleButtons(){
     //const dispatch = useDispatch()
     const battle = useSelector(state => state.hudController.battle)
+
+    useEffect( () => {
+        console.log('esto deberia ejecutarse una sola vez :S')
+    })
 
     if(battle){
         return <Grow in={true}>
