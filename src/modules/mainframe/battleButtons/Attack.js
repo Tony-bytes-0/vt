@@ -9,6 +9,7 @@ import { newMessage } from "../../../redux/logs";
 import { useEffect } from "react";
 import { calculateDmg, enemyRandomTurn, getRandomInt, castMagic } from "../../staticObjects/dmgCalculator";
 import { advance } from "../../../redux/enviroment/enviromentValues";
+import { clickAttack } from "../../../redux/battleButonsController";
 
 export default function Attack(){
     const dispatch = useDispatch()
@@ -19,7 +20,6 @@ export default function Attack(){
 
 
     useEffect(() => {
-            console.log('referi de useEffect')
             referi()
       });
 
@@ -104,16 +104,17 @@ export default function Attack(){
 
 
     return <><Button onClick = {() => {//dispatch(newMessage({'message':''}))
-        dispatch(newMessage({'message':'___ Turno ' + turn + ' ___'}))
-        if(player.speed > enemy.speed){//setTimeout(( ) => playerAction() , 2000) //setTimeout(() => enemyAction(), 6000)
-            playerAction()
-            enemyAction() 
-        }else{
-            enemyAction()
-            playerAction()
-        }
-        dispatch(turnCount())
-
+        // dispatch(newMessage({'message':'___ Turno ' + turn + ' ___'}))
+        // if(player.speed > enemy.speed){//setTimeout(( ) => playerAction() , 2000) //setTimeout(() => enemyAction(), 6000)
+        //     playerAction()
+        //     enemyAction() 
+        // }else{
+        //     enemyAction()
+        //     playerAction()
+        // }
+        // dispatch(turnCount())
+        console.log('acabas de clikear Atacar')
+        dispatch(clickAttack(true))
     const scroll = document.getElementById('scrollBox') ;scroll.scroll(0, scroll.scrollHeight)
     
     }}>Atacar!</Button>

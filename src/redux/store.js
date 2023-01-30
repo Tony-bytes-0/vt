@@ -9,8 +9,9 @@ import enviromentValues from './enviroment/enviromentValues'
 //Hud
 import logs from './logs'
 import hudController from './hudController'
+import battleButonsController from './battleButonsController'
 
 
 export default configureStore({
-    reducer: { playerInfo, enemy, enviromentValues, logs, hudController, battleController }
+    reducer: { playerInfo, enemy, enviromentValues, logs, hudController, battleController, battleButonsController }
 })

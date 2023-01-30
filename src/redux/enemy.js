@@ -4,7 +4,7 @@ const enemyData = {
     'name':'enemigo de pruebaMelaChota', 'class': ['unknown'],
     'life':5, 'stamina':5, 'attack':5, 'defence':4, 'mana':1, 'speed':5,
     'maxLife':5, 'maxStamina':6, 'maxMana':1,
-    'skills': []
+    'skills': [], 'state':[]
 }
 export const enemy = createSlice({
     name:'enemy',

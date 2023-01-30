@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 //Reducers
 import { turnCount } from "../../../redux/battleController";
 import { toggleBattle, toggleLevelUp } from "../../../redux/hudController";
-import { modExp, modLife, modStamina, guardDown,  } from "../../../redux/player/playerInfo";//PLAYER
+import { modExp, modLife, modStamina, guardDown, modMana  } from "../../../redux/player/playerInfo";//PLAYER
 import { setLife, setStamina, setMana, setAttack, setGuardUp, setGuardDown } from "../../../redux/enemy";//ENEMY
 import { newMessage } from "../../../redux/logs";
 import { useEffect } from "react";
 import { calculateDmg, enemyRandomTurn, getRandomInt, castMagic } from "../../staticObjects/dmgCalculator";
 import { advance } from "../../../redux/enviroment/enviromentValues";
+import { clickCalm } from "../../../redux/battleButonsController";
 
 
 export default function Calm(){
@@ -20,7 +21,6 @@ export default function Calm(){
 
 
     useEffect(() => {
-            console.log('referi de useEffect')
             referi()
       });
 
@@ -102,15 +102,16 @@ export default function Calm(){
 
 
     return <><Button onClick = {() => {//dispatch(newMessage({'message':''}))
-        dispatch(newMessage({'message':'___ Turno ' + turn + ' ___'}))
-        if(player.speed > enemy.speed){//setTimeout(( ) => playerAction() , 2000) //setTimeout(() => enemyAction(), 6000)
-            playerAction()
-            enemyAction() 
-        }else{
-            enemyAction()
-            playerAction()
-        }
-        dispatch(turnCount())
+        // dispatch(newMessage({'message':'___ Turno ' + turn + ' ___'}))
+        // if(player.speed > enemy.speed){//setTimeout(( ) => playerAction() , 2000) //setTimeout(() => enemyAction(), 6000)
+        //     playerAction()
+        //     enemyAction() 
+        // }else{
+        //     enemyAction()
+        //     playerAction()
+        // }
+        // dispatch(turnCount())
+        dispatch(clickCalm(true))
 
     const scroll = document.getElementById('scrollBox') ;scroll.scroll(0, scroll.scrollHeight)
     

@@ -8,6 +8,7 @@ import { setLife, setStamina, setMana, setAttack, setGuardUp, setGuardDown } fro
 import { useEffect } from "react";
 import { calculateDmg, enemyRandomTurn, getRandomInt, castMagic } from "../../staticObjects/dmgCalculator";
 import { advance } from "../../../redux/enviroment/enviromentValues";
+import { clickGuard } from "../../../redux/battleButonsController";
 
 export default function Guard(){
     const dispatch = useDispatch()
@@ -15,10 +16,7 @@ export default function Guard(){
     const enemy = useSelector(state => state.enemy)
     const turn = useSelector(state => state.battleController.turn)
 
-    useEffect(() => {
-        console.log('referi de useEffect')
-        referi()
-  });
+
 
     function referi(){
         if(player.life <= 0){
@@ -89,16 +87,17 @@ export default function Guard(){
 
 
     return <Button onClick={() => {
-        dispatch(newMessage({'message':'___ Turno ' + turn + ' ___'}))
-        if(player.speed > enemy.speed){//setTimeout(( ) => playerAction() , 2000) //setTimeout(() => enemyAction(), 6000)
-            playerAction()
-            enemyAction() 
-        }else{
-            enemyAction()
-            playerAction()
-        }
-        dispatch(turnCount())
+        // dispatch(newMessage({'message':'___ Turno ' + turn + ' ___'}))
+        // if(player.speed > enemy.speed){//setTimeout(( ) => playerAction() , 2000) //setTimeout(() => enemyAction(), 6000)
+        //     playerAction()
+        //     enemyAction() 
+        // }else{
+        //     enemyAction()
+        //     playerAction()
+        // }
+        // dispatch(turnCount())
 
+        dispatch(clickGuard(true))
     const scroll = document.getElementById('scrollBox') ;scroll.scroll(0, scroll.scrollHeight)
     }}>Cubrirse</Button>
 }
